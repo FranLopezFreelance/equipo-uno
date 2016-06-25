@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', 'ItemsController@login');
+
+Route::group(['middleware' => 'meli'], function() {
+    Route::get('/items', 'ItemsController@index');
+});
